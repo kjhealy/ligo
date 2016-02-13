@@ -1,71 +1,57 @@
-
+###--------------------------------------------------
+### Rough network plots of the LIGO paper
+###--------------------------------------------------
 
 library(igraph)
 library(stringr)
 library(tidyr)
-#library(network)
-#library(sna)
-library(ggnet)
 library(dplyr)
 library(networkD3)
 
 
-leg.col <- function (colours, borders = NULL)
-{
-    labels <- names(colours)
-    n <- length(colours)
-    ncol <- ceiling(sqrt(n))
-    nrow <- ceiling(n/ncol)
-    colours <- c(colours, rep(NA, nrow * ncol - length(colours)))
-    colours <- matrix(colours, ncol = ncol, byrow = TRUE)
-    old <- par(pty = "s", mar = c(0, 0, 0, 0))
-    on.exit(par(old))
-    size <- max(dim(colours))
-    plot(c(0, size), c(0, -size), xlab = "", ylab = "",
-        axes = FALSE)
-    rect(col(colours) - 1, -row(colours) + 1, col(colours), -row(colours),
-        col = colours, border = borders)
-        text(col(colours) - 0.5, -row(colours) + 0.5, labels)
-}
+## leg.col <- function (colours, borders = NULL)
+## {
+##     labels <- names(colours)
+##     n <- length(colours)
+##     ncol <- ceiling(sqrt(n))
+##     nrow <- ceiling(n/ncol)
+##     colours <- c(colours, rep(NA, nrow * ncol - length(colours)))
+##     colours <- matrix(colours, ncol = ncol, byrow = TRUE)
+##     old <- par(pty = "s", mar = c(0, 0, 0, 0))
+##     on.exit(par(old))
+##     size <- max(dim(colours))
+##     plot(c(0, size), c(0, -size), xlab = "", ylab = "",
+##         axes = FALSE)
+##     rect(col(colours) - 1, -row(colours) + 1, col(colours), -row(colours),
+##         col = colours, border = borders)
+##         text(col(colours) - 0.5, -row(colours) + 0.5, labels)
+## }
 
 
+###--------------------------------------------------
+### Data
+###--------------------------------------------------
 
+## Author names and numbered affiliations
 name.dat <- read.csv("data/author-affils.csv")
 
-
+### Departments and Countries
 affil.dat <- read.csv("data/affil-clean.csv")
 affil.dat$Country <- str_trim(affil.dat$Country)
+affil.dat$Shortname <- str_trim(affil.dat$Shortname)
 
+### Long-form Authors and Depts
 data <- gather(name.dat, Affiliation, School, Aff1:Aff3, na.rm = TRUE)
-
 ind <- match(data$School, affil.dat$id)
-
-data$School.Name <- affil.dat$Name[ind]
-
+data$School.Name <- affil.dat$Shortname[ind]
 data$Country <- affil.dat$Country[ind]
 
+
+## Authors + Schools
 data.bp <- data.frame(data[,c("Name", "School.Name")])
 colnames(data.bp) <- c("Name", "School")
-
-data.co <- data.frame(data[,c("Name", "Country")])
-
-
-
-
-data.co.tab <- table(data.co)
-data.co.mat <- as.matrix(data.co.tab)
-
-
 data.bp.tab <- table(data.bp)
 data.bp.mat <- as.matrix(data.bp.tab)
-
-
-person.co.net <- data.co.mat %*% t(data.co.mat)
-group.co.net <- t(data.co.mat) %*% data.co.mat
-
-diag(group.co.net) <- NA
-diag(person.co.net) <- NA
-
 
 person.bp.net <- data.bp.mat %*% t(data.bp.mat)
 group.bp.net <- t(data.bp.mat) %*% data.bp.mat
@@ -73,17 +59,50 @@ group.bp.net <- t(data.bp.mat) %*% data.bp.mat
 diag(group.bp.net) <- NA
 diag(person.bp.net) <- NA
 
-
-
-
-
-person.co.g <- graph.adjacency(person.co.net,mode="undirected",
+person.bp.g <- graph.adjacency(person.bp.net,mode="undirected",
                             weighted=NULL, diag=FALSE)
 
 
+group.bp.g <- graph.adjacency(group.bp.net, weighted=TRUE,
+                           mode="undirected", diag=FALSE)
+
+
+
+## Authors + Countries
+data.co <- data.frame(data[,c("Name", "Country")])
+data.co.tab <- table(data.co)
+data.co.mat <- as.matrix(data.co.tab)
+
+person.co.net <- data.co.mat %*% t(data.co.mat)
+group.co.net <- t(data.co.mat) %*% data.co.mat
+
+diag(group.co.net) <- NA
+diag(person.co.net) <- NA
+
+person.co.g <- graph.adjacency(person.co.net,mode="undirected",
+                            weighted=NULL, diag=FALSE)
 group.co.g <- graph.adjacency(group.co.net, weighted=TRUE,
                            mode="undirected", diag=FALSE)
 
+
+## Authors
+data.uni <- data.frame(data[,c("Name", "School.Name")])
+data.uni.tab <- table(data.uni)
+data.uni.mat <- as.matrix(data.uni.tab)
+
+person.uni.net <- data.uni.mat %*% t(data.uni.mat)
+group.uni.net <- t(data.uni.mat) %*% data.uni.mat
+
+person.uni.g <- graph.adjacency(person.uni.net,mode="undirected",
+                                weighted=NULL, diag=FALSE)
+group.uni.g <- graph.adjacency(group.uni.net, weighted=TRUE,
+                           mode="undirected", diag=FALSE)
+
+
+
+###--------------------------------------------------
+### Plots
+###--------------------------------------------------
 
 la <- layout.kamada.kawai(group.co.g)
 e.wt <- get.edge.attribute(group.co.g, "weight")
@@ -102,13 +121,6 @@ plot(simplify(person.co.g, remove.loops=TRUE), layout=layout.kamada.kawai, verte
 dev.off()
 
 
-person.bp.g <- graph.adjacency(person.bp.net,mode="undirected",
-                            weighted=NULL, diag=FALSE)
-
-
-group.bp.g <- graph.adjacency(group.bp.net, weighted=TRUE,
-                           mode="undirected", diag=FALSE)
-
 
 
 la <- layout.kamada.kawai(group.bp.g)
@@ -119,6 +131,28 @@ pdf(file="figures/group-bp-view.pdf", width=10, height=10)
 plot(group.bp.g, layout=la, vertex.size=5,edge.width=e.wt,
      vertex.label=V(group.bp.g)$name, vertex.label.dist=0.4)
 dev.off()
+
+
+la <- layout.kamada.kawai(group.uni.g)
+e.wt <- get.edge.attribute(group.uni.g, "weight")
+
+
+pdf(file="figures/group-uni-view.pdf", width=10, height=10)
+plot(group.uni.g, layout=la, vertex.size=2,edge.width=sqrt(e.wt),
+     vertex.label=V(group.uni.g)$name, vertex.label.cex=0.6)
+dev.off()
+
+
+pdf(file="figures/group-uni-view-fr.pdf", width=10, height=10)
+plot(group.uni.g, layout=layout.fruchterman.reingold, vertex.size=2,edge.width=sqrt(e.wt),
+     vertex.label=V(group.uni.g)$name, vertex.label.cex=0.6)
+dev.off()
+
+
+
+### Sorting out the vertex color is quite annoying
+### The following is way too messy, and also doesn't
+### work at the moment
 
 library(RColorBrewer)
 
@@ -160,8 +194,7 @@ title("Author Affiliation Network for 'Astrophysical Implications Of The Binary 
 
 dev.off()
 
-
-
+### Gaaah, broken
 color.table <- data %>% group_by(Country) %>% tally() %>% filter(n>10) %>% arrange(desc(n))
 color.table$Color <- col.d
 color.table <- rbind(color.table, (c("Other", 0, "#FFFFFF")))
@@ -251,8 +284,9 @@ group.g <- graph.adjacency(group.net, weighted=TRUE,
 
 
 
-
+### Fancier, with triplets
 library('Matrix')
+
 A <- spMatrix(nrow=length(unique(data.bp$Name)),
         ncol=length(unique(data.bp$School)),
         i = as.numeric(factor(data.bp$Name)),
@@ -266,34 +300,7 @@ Acol <- tcrossprod(t(A))
 
 Arow <- tcrossprod(A)
 
-
-
-
-
-
-
-library(igraph)
-
-dept.names <- sort(unique(affil.dat$Name))
-ind <- match(dept.names, affil.dat$Name)
-
-countries.o <- str_trim(as.character(affil.dat$Country[ind]))
-
-
-data.col <- graph.adjacency(Acol, mode=c("undirected"))
-
-la <- layout.fruchterman.reingold(data.col)
-
-plot(simplify(data.col, remove.loops = TRUE), layout=la, vertex.size=5)
-
-
-V(data.col$Country) <- countries.o
-
-
-adj <- as.matrix(table(data.bp))
-
-
-
+## Countries
 A <- spMatrix(nrow=length(unique(data.co$Name)),
         ncol=length(unique(data.co$Country)),
         i = as.numeric(factor(data.co$Name)),
@@ -308,17 +315,10 @@ Acol <- tcrossprod(t(A))
 Arow <- tcrossprod(A)
 
 data.col <- graph.adjacency(Acol, mode=c("undirected"))
-
-
 la <- layout.fruchterman.reingold(data.col)
 
 plot(simplify(data.col, remove.loops = TRUE), layout=la,
      vertex.size=5, vertex.label.dist=0.35, vertex.label.cex=0.65)
-
-data.net <- asNetwork(data.col)
-
-ggnet2(data.net)
-
 
 data.row <- graph.adjacency(Arow, mode=c("undirected"))
 
@@ -330,6 +330,6 @@ V(data.row)$color=V(data.row)$Country
 la <- layout.fruchterman.reingold(data.row)
 
 
-pdf(file="figures/test.pdf")
-plot(simplify(data.row, remove.loops = TRUE), layout=la, vertex.label=NA)
+pdf(file="figures/test.pdf", height=5, width=5)
+plot(simplify(data.row, remove.loops = TRUE), layout=la, vertex.label=NA, vertex.size=4)
 dev.off()
