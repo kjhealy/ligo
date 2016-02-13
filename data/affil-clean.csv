@@ -1,134 +1,134 @@
-id,Country,Name
-1, USA,LIGO California Institute of Technology
-2, USA,Louisiana State University
-3, Italy,Universita di Salerno
-4, Italy,"INFN, Sezione di Napoli"
-5, USA,University of Florida
-6, USA,LIGO Livingston Observatory
-7,France,Universite Savoie 
-8, Germany,Albert-Einstein-Institut
-9, Netherlands,Nikhef
-10, USA,LIGO Massachusetts Institute of Technology
-11, Italy,Instituto Nacional de Pesquisas Espaciais
-12, Italy,INFN
-13, Italy,INFN
-14,India,Inter-University Centre for Astronomy and Astrophysics
-15, India,International Centre for Theoretical Sciences
-16, USA,University of Wisconsin-Milwaukee
-17,Germany,Leibniz Universitat Hannover
-18,Italy,Universita di Pisa
-19, Italy,INFN
-20, Australia,Australian National University
-21, USA,The University of Mississippi
-22, USA,California State University Fullerton
-23,France,Univ. Paris-Sud
-24, India,Chennai Mathematical Institute
-25, Italy,Universita di Roma Tor Vergata
-26, UK,University of Southampton
-27, Germany,Universitat Hamburg
-28, Italy,INFN
-29, Germany,Albert-Einstein-Institut
-30, France,Observatoire de Paris
-31, USA,Montana State University
-32, Italy,Universita di Perugia
-33, Italy,INFN
-34, Italy,European Gravitational Observatory
-35, USA,Syracuse University
-36, UK,SUPA
-37, USA,LIGO Hanford Observatory
-38, Hungary,Wigner RCP
-39, USA,Columbia University
-40, USA,Stanford University
-41, Italy,Universita di Padova
-42, Italy,INFN
-43, Poland,CAMK-PAN
-44, Poland,Astronomical Observatory Warsaw University
-45, UK,University of Birmingham
-46, Italy,Universita degli Studi di Genova
-47, Italy,INFN
-48, India,RRCAT
-49, Russia,Faculty of Physics
-50, UK,SUPA
-51, Australia,University of Western Australia
-52, Netherlands,Radboud University Nijmegen
-53, France,Artemis
-54, Hungary,MTA Eotvos University
-55, France,Institut de Physique de Rennes
-56, USA,Washington State University
-57,Italy,Universita degli Studi di Urbino
-58, Italy,"INFN, Sezione di Firenze"
-59, USA,University of Oregon
-60, France,Laboratoire Kastler Brossel
-61, Netherlands,VU University Amsterdam
-62, USA,University of Maryland
-63, USA,Georgia Institute of Technology
-64, France,Institut Lumiere Matiere
-65, France,Laboratoire des Materiaux Avances
-66, Spain,Universitat de les Illes Balears
-67,Italy,Universita di Napoli
-68, USA,NASA/Goddard Space Flight Center
-69,Canada,Canadian Institute for Theoretical Astrophysics
-70,China,Tsinghua University
-71, USA,University of Michigan
-72, USA,The Pennsylvania State University
-73,Taiwan,National Tsing Hua University
-74, Australia,Charles Sturt University
-75, USA,University of Chicago
-76, USA,Caltech CaRT
-77,Korea,Korea Institute of Science and Technology Information
-78, USA,Carleton College
-79,Italy,Universita di Roma
-80,Belgium,University of Brussels
-81, USA,Sonoma State University
-82, USA,Texas Tech University
-83, USA,Northwestern University
-84, USA,University of Minnesota
-85, Australia,The University of Melbourne
-86, USA,The University of Texas Rio Grande Valley
-87,UK,The University of Sheffield
-88, Italy,University of Sannio at Benevento
-89, USA,Montclair State University
-90, Italy,Universita di Trento
-91, Italy,INFN Trento
-92, UK,Cardiff University
-93, Japan,National Astronomical Observatory of Japan
-94, UK,School of Mathematics
-95,India,Indian Institute of Technology
-96, India,Institute for Plasma Research
-97, Hungary,University of Szeged
-98, USA,Embry-Riddle Aeronautical University
-99,India,Tata Institute of Fundamental Research
-100, USA,American University
-101, USA,University of Massachusetts-Amherst
-102, Australia,University of Adelaide
-103, USA,West Virginia University
-104,Poland,University of Bia_ystok
-105, UK,SUPA
-106, India,IISER-TVM
-107, Russia,Institute of Applied Physics
-108, Korea,Pusan National University
-109, Korea,Hanyang University
-110, Poland,NCBJ
-111, Poland,IM-PAN
-112, USA,Rochester Institute of Technology
-113, Australia,Monash University
-114, Korea,Seoul National University
-115, USA,University of Alabama in Huntsville
-116, France,ESPCI
-117, Italy,Universita di Camerino
-118, USA,Southern University and A&M College
-119, USA,College of William and Mary
-120, Brazil,Instituto de Fisica Teorica
-121,UK,University of Cambridge
-122, India,IISER-Kolkata
-123,UK,Rutherford Appleton Laboratory
-124,USA,Whitman College
-125, Korea,National Institute for Mathematical Sciences
-126, USA,Hobart and William Smith Colleges
-127,Poland,Institute of Astronomy
-128, USA,Andrews University
-129,Italy,Universita di Siena
-130, USA,Trinity University
-131, USA,University of Washington
-132, USA,Kenyon College
-133, USA,Abilene Christian University
+id,Country,Name,Shortname
+1, USA,LIGO California Institute of Technology,LIGO Caltech
+2, USA,Louisiana State University,Louisiana St
+3, Italy,Universita di Salerno, Salerno
+4, Italy,"INFN, Sezione di Napoli","INFN, Sezione di Napoli"
+5, USA,University of Florida,U of Florida
+6, USA,LIGO Livingston Observatory,LIGO Livingston Obs
+7,France,Universite Savoie ,U Savoie 
+8, Germany,Albert-Einstein-Institut,Albert-Einstein-Institut
+9, Netherlands,Nikhef,Nikhef
+10, USA,LIGO Massachusetts Institute of Technology,LIGO MIT
+11, Italy,Instituto Nacional de Pesquisas Espaciais,Instituto Nacional de Pesquisas Espaciais
+12, Italy,INFN,INFN
+13, Italy,INFN,INFN
+14,India,Inter-University Centre for Astronomy and Astrophysics,Inter-U Centre for Astronomy and Astrophysics
+15, India,International Centre for Theoretical Sciences,ICST India
+16, USA,University of Wisconsin-Milwaukee,UW-Milwaukee
+17,Germany,Leibniz Universitat Hannover,Leibniz Ut Hannover
+18,Italy,Universita di Pisa, Pisa
+19, Italy,INFN,INFN
+20, Australia,Australian National University,Australian National U
+21, USA,The University of Mississippi,U of Mississippi
+22, USA,California State University Fullerton,CSU Fullerton
+23,France,Univ. Paris-Sud,Univ. Paris-Sud
+24, India,Chennai Mathematical Institute,Chennai 
+25, Italy,Universita di Roma Tor Vergata, Roma Tor Vergata
+26, UK,University of Southampton,Southampton
+27, Germany,Universitat Hamburg,Ut Hamburg
+28, Italy,INFN,INFN
+29, Germany,Albert-Einstein-Institut,Albert-Einstein-Institut
+30, France,Observatoire de Paris,Obs de Paris
+31, USA,Montana State University,Montana State
+32, Italy,Universita di Perugia, Perugia
+33, Italy,INFN,INFN
+34, Italy,European Gravitational Observatory,Euro Grav Obs
+35, USA,Syracuse University,Syracuse U
+36, UK,SUPA,SUPA
+37, USA,LIGO Hanford Observatory,LIGO Hanford Obs
+38, Hungary,Wigner RCP,Wigner RCP
+39, USA,Columbia University,Columbia
+40, USA,Stanford University,Stanford
+41, Italy,Universita di Padova, Padova
+42, Italy,INFN,INFN
+43, Poland,CAMK-PAN,CAMK-PAN
+44, Poland,Astronomical Observatory Warsaw University,Warsaw U
+45, UK,University of Birmingham,Birmingham
+46, Italy,Universita degli Studi di Genova, Genova
+47, Italy,INFN,INFN
+48, India,RRCAT,RRCAT
+49, Russia,Faculty of Physics,Faculty of Physics
+50, UK,SUPA,SUPA
+51, Australia,University of Western Australia,U of Western Australia
+52, Netherlands,Radboud University Nijmegen,Radboud U Nijmegen
+53, France,Artemis,Artemis
+54, Hungary,MTA Eotvos University,MTA Eotvos U
+55, France,Institut de Physique de Rennes,IdP Rennes
+56, USA,Washington State University,Washington State
+57,Italy,Universita degli Studi di Urbino, Urbino
+58, Italy,"INFN, Sezione di Firenze",INFN Firenze
+59, USA,University of Oregon,Oregon
+60, France,Laboratoire Kastler Brossel,Lab. Kastler Brossel
+61, Netherlands,VU University Amsterdam,VUU Amsterdam
+62, USA,University of Maryland,Maryland
+63, USA,Georgia Institute of Technology,Georgia Tech
+64, France,Institut Lumiere Matiere,I. Lumiere Matiere
+65, France,Laboratoire des Materiaux Avances,Lab des Materiaux Avances
+66, Spain,Universitat de les Illes Balears,U Illes Balears
+67,Italy,Universita di Napoli, Napoli
+68, USA,NASA/Goddard Space Flight Center,NASA/Goddard 
+69,Canada,Canadian Institute for Theoretical Astrophysics,Canadian ITA
+70,China,Tsinghua University,Tsinghua U
+71, USA,University of Michigan,Michigan
+72, USA,The Pennsylvania State University,Penn State
+73,Taiwan,National Tsing Hua University,National Tsing Hua
+74, Australia,Charles Sturt University,Charles Sturt
+75, USA,University of Chicago,U Chicago
+76, USA,Caltech CaRT,Caltech CaRT
+77,Korea,Korea Institute of Science and Technology Information,Korea ISTI
+78, USA,Carleton College,Carleton
+79,Italy,Universita di Roma, Roma
+80,Belgium,University of Brussels,U Brussels
+81, USA,Sonoma State University,Sonoma State
+82, USA,Texas Tech University,Texas Tech
+83, USA,Northwestern University,Northwestern
+84, USA,University of Minnesota,Minnesota
+85, Australia,The University of Melbourne,Melbourn
+86, USA,The University of Texas Rio Grande Valley,UT Rio Grande
+87,UK,The University of Sheffield,Sheffield
+88, Italy,University of Sannio at Benevento,U Sannio at Benevento
+89, USA,Montclair State University,Montclair State
+90, Italy,Universita di Trento, Trento
+91, Italy,INFN Trento,INFN Trento
+92, UK,Cardiff University,Cardiff U
+93, Japan,National Astronomical Observatory of Japan,NAO Japan
+94, UK,School of Mathematics,School of Mathematics
+95,India,Indian Institute of Technology,IIT India
+96, India,Institute for Plasma Research,IPR India
+97, Hungary,University of Szeged,Szeged
+98, USA,Embry-Riddle Aeronautical University,Embry-Riddle Aeronautical
+99,India,Tata Institute of Fundamental Research,Taia IFR India
+100, USA,American University,American U
+101, USA,University of Massachusetts-Amherst,U Mass Amherst
+102, Australia,University of Adelaide,Adelaide
+103, USA,West Virginia University,West Virginia U
+104,Poland,University of Bia_ystok,U of Bialystok
+105, UK,SUPA,SUPA
+106, India,IISER-TVM,IISER-TVM
+107, Russia,Institute of Applied Physics,IAP Russia
+108, Korea,Pusan National University,Pusan National U
+109, Korea,Hanyang University,Hanyang U
+110, Poland,NCBJ,NCBJ
+111, Poland,IM-PAN,IM-PAN
+112, USA,Rochester Institute of Technology,Rochester Tech
+113, Australia,Monash University,Monash
+114, Korea,Seoul National University,Seoul National
+115, USA,University of Alabama in Huntsville,Alabama-Huntsville
+116, France,ESPCI,ESPCI
+117, Italy,Universita di Camerino, Camerino
+118, USA,Southern University and A&M College,South. U and A&M College
+119, USA,College of William and Mary,William & Mary
+120, Brazil,Instituto de Fisica Teorica,IIT Brazil
+121,UK,University of Cambridge,Cambridge UK
+122, India,IISER-Kolkata,IISER-Kolkata
+123,UK,Rutherford Appleton Laboratory,Rutherford Appleton Lab
+124,USA,Whitman College,Whitman College
+125, Korea,National Institute for Mathematical Sciences,NIMS Korea
+126, USA,Hobart and William Smith Colleges,Hobart & William Smith
+127,Poland,Institute of Astronomy,IA Poland
+128, USA,Andrews University,Andrews U
+129,Italy,Universita di Siena, Siena
+130, USA,Trinity University,Trinity U
+131, USA,University of Washington,U of Washington
+132, USA,Kenyon College,Kenyon College
+133, USA,Abilene Christian University,Abilene Christian
